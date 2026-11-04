@@ -1,0 +1,23 @@
+# Uploads
+backend/CareNavigator.API/Uploads/
+
+# Angular
+**/node_modules/
+**/.angular/
+**/dist/
+
+# .NET
+**/bin/
+**/obj/
+
+# Visual Studio
+.vs/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Environment
+.env

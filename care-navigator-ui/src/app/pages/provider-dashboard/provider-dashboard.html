@@ -1,0 +1,147 @@
+<div class="provider-shell">
+
+  <div class="topbar">
+
+    <div>
+      <p class="eyebrow">PROVIDER WORKSPACE</p>
+
+      <h1>Good Morning, Dr. Smith</h1>
+
+      <p class="subtitle">
+        Monitor patient outcomes, care plans, and health interventions
+        from one centralized dashboard.
+      </p>
+    </div>
+
+    <div class="provider-profile">
+      <div class="avatar">DS</div>
+
+      <div>
+        <strong>Dr. Smith</strong>
+        <small>Care Coordinator</small>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="search-box">
+
+    <i class="bi bi-search"></i>
+
+    <input
+      type="text"
+      placeholder="Search patients, reports or care plans...">
+
+  </div>
+
+  <div class="kpi-grid">
+
+    <div class="kpi-card blue">
+      <h2>{{ totalPatients }}</h2>
+      <span>Total Patients</span>
+    </div>
+
+    <div class="kpi-card red">
+      <h2>{{ highRiskPatients }}</h2>
+      <span>High Risk Patients</span>
+    </div>
+
+    <div class="kpi-card gold">
+      <h2>{{ followUps }}</h2>
+      <span>Follow Ups</span>
+    </div>
+
+    <div class="kpi-card green">
+      <h2>{{ activeCarePlans }}</h2>
+      <span>Active Care Plans</span>
+    </div>
+
+  </div>
+
+  <div class="content-grid">
+
+    <div class="panel">
+
+      <div class="panel-header">
+        <h3>High Risk Patients</h3>
+      </div>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Patient</th>
+            <th>Risk Score</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let patient of highRiskList">
+
+            <td>{{ patient.name }}</td>
+
+            <td>{{ patient.score }}%</td>
+
+            <td>
+
+              <span class="status">
+
+                {{ patient.status }}
+
+              </span>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="side-panels">
+
+      <div class="panel">
+
+        <div class="panel-header">
+          <h3>Recent Activities</h3>
+        </div>
+
+        <div
+          class="activity"
+          *ngFor="let item of activities">
+
+          ✓ {{ item }}
+
+        </div>
+
+      </div>
+
+      <div class="panel">
+
+        <div class="panel-header">
+          <h3>AI Recommendations</h3>
+        </div>
+
+        <div class="recommendation">
+          🚨 3 patients require immediate follow-up.
+        </div>
+
+        <div class="recommendation">
+          📄 2 reports need provider review.
+        </div>
+
+        <div class="recommendation">
+          📈 Diabetes trend increased by 8%.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

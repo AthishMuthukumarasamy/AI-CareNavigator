@@ -1,0 +1,278 @@
+<div class="dashboard-shell">
+  <aside class="sidebar">
+    <div class="brand-block">
+      <div class="brand-mark">✚</div>
+      <div>
+        <span class="brand-label">Care</span>
+        <h3>Navigator</h3>
+      </div>
+    </div>
+
+    <nav class="nav-menu" aria-label="Sidebar navigation">
+      <button class="nav-item active" type="button">
+        <i class="bi bi-speedometer2"></i>
+        <span>Dashboard</span>
+      </button>
+
+      <button class="nav-item" type="button">
+        <i class="bi bi-calendar-check"></i>
+        <span>Appointments</span>
+      </button>
+
+      <button class="nav-item" type="button">
+        <i class="bi bi-file-earmark-medical"></i>
+        <span>Reports</span>
+      </button>
+
+      <button class="nav-item" type="button">
+        <i class="bi bi-capsule"></i>
+        <span>Prescriptions</span>
+      </button>
+
+      <button class="nav-item" type="button">
+        <i class="bi bi-heart-pulse"></i>
+        <span>Care Plans</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-card">
+      <div class="mini-pill success">Stable</div>
+      <h4>Clinical status</h4>
+      <p>Low risk profile with consistent monitoring.</p>
+    </div>
+  </aside>
+
+  <main class="content-panel">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Health overview</p>
+        <h1>Patient Dashboard</h1>
+      </div>
+
+      <div class="topbar-actions">
+        <div class="search-box">
+          <i class="bi bi-search"></i>
+          <span>Quick search</span>
+        </div>
+        <button class="icon-button" aria-label="Notifications">
+          <i class="bi bi-bell"></i>
+        </button>
+
+        <button
+  class="icon-button"
+  aria-label="Logout"
+  (click)="logout()">
+
+  <i class="bi bi-box-arrow-right"></i>
+
+</button>
+
+        <div class="user-chip">
+          <div class="avatar">
+            {{ patientInitials }}
+          </div>
+          <div>
+            <strong>{{ patientName }}</strong>
+            <small>Patient</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero-card">
+      <div class="hero-copy">
+        <div class="section-title-row">
+          <div class="robot-icon">🤖</div>
+          <h2>AI Health Score</h2>
+        </div>
+
+        <div class="score-row">
+          <div>
+            <h3 class="score-number">{{ healthScore }}<span>/ 100</span></h3>
+            <p class="score-caption">Your overall health condition is stable.</p>
+          </div>
+        </div>
+
+        <ul class="insight-list">
+          <li><span class="dot blue"></span> Diabetes indicators detected</li>
+          <li><span class="dot amber"></span> Follow-up monitoring recommended</li>
+          <li><span class="dot green"></span> Continue current care plan</li>
+        </ul>
+      </div>
+
+      <div class="score-ring-wrap">
+        <div class="score-ring">
+          <div class="score-ring-inner">
+            <span>{{ healthScore }}%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kpi-grid" aria-label="Key metrics">
+      <article class="kpi-card blue">
+        <div class="kpi-icon"><i class="bi bi-calendar3"></i></div>
+        <div class="kpi-body">
+          <strong>1</strong>
+          <span>Appointments</span>
+        </div>
+      </article>
+
+      <article class="kpi-card green">
+        <div class="kpi-icon"><i class="bi bi-file-earmark-text"></i></div>
+        <div class="kpi-body">
+          <strong>2</strong>
+          <span>Reports</span>
+        </div>
+      </article>
+
+      <article class="kpi-card gold">
+        <div class="kpi-icon"><i class="bi bi-prescription"></i></div>
+        <div class="kpi-body">
+          <strong>1</strong>
+          <span>Prescriptions</span>
+        </div>
+      </article>
+
+      <article class="kpi-card red">
+        <div class="kpi-icon"><i class="bi bi-shield-check"></i></div>
+        <div class="kpi-body">
+          <strong>{{ healthScore }}%</strong>
+          <span>Risk Score</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="lower-grid">
+      <article class="panel summary-panel">
+        <div class="panel-header">
+          <div class="panel-title-wrap">
+            <div class="robot-icon small">🤖</div>
+            <h3>AI Health Summary</h3>
+          </div>
+          <button class="ghost-button">View insights</button>
+        </div>
+
+        <div class="summary-content">
+          <div class="summary-item">
+            <span class="status-tag warning">Diabetes</span>
+            <p>Glucose pattern remains elevated but within monitored range.</p>
+          </div>
+          <div class="summary-item">
+            <span class="status-tag info">Cholesterol</span>
+            <p>Moderate improvement trend compared to last review cycle.</p>
+          </div>
+          <div class="summary-item">
+            <span class="status-tag success">Care plan</span>
+            <p>Current plan remains effective and should continue for 6 weeks.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel timeline-panel">
+        <div class="panel-header">
+          <div class="panel-title-wrap">
+            <div class="panel-icon"><i class="bi bi-activity"></i></div>
+            <h3>Health Timeline</h3>
+          </div>
+        </div>
+
+        <div class="timeline-list">
+
+  <div
+    class="timeline-item complete"
+    *ngFor="let event of timelineEvents">
+
+    <div class="timeline-dot"></div>
+
+    <div>
+
+      <strong>
+        {{ event.description }}
+      </strong>
+
+      <small>
+        {{ event.eventType }}
+      </small>
+
+    </div>
+
+  </div>
+
+</div>
+      </article>
+    </section>
+
+  </main>
+</div>
+
+<div class="assistant-layer" *ngIf="isAiAssistantOpen || true">
+  <section class="assistant-panel panel premium-panel" *ngIf="isAiAssistantOpen">
+    <div class="panel-header">
+      <div class="panel-title-wrap">
+        <div class="panel-icon ai"><i class="bi bi-robot"></i></div>
+        <div>
+          <h3>Ask AI Care Navigator</h3>
+          <small>Clinical intelligence assistant</small>
+        </div>
+      </div>
+      <div class="assistant-actions">
+        <span class="status-chip online">LIVE</span>
+        <button type="button" class="close-assistant" (click)="toggleAiAssistant()" aria-label="Close AI assistant">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="assistant-box">
+      <div class="prompt-shell">
+        <div class="prompt-leading"><i class="bi bi-stars"></i></div>
+        <input
+          type="text"
+          [(ngModel)]="question"
+          placeholder="Ask AI Care Navigator" />
+        <button type="button" (click)="askAI()">Ask AI</button>
+      </div>
+
+      <div class="response-shell">
+        <div class="response-topbar">
+          <div class="response-label">
+            <span class="mini-badge">
+              AI
+            </span>
+            <span>
+              AI Response
+            </span>
+          </div>
+
+          <span class="confidence-badge">
+          94% confidence
+          </span>
+        </div>
+        <div class="response-card">
+
+        <pre class="ai-response">{{ aiResponse }}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <div class="floating-ai-assistant" aria-label="AI Care Navigator assistant">
+    <div
+  class="assistant-greeting-popup"
+  *ngIf="showAssistantGreeting">
+
+  👋 Hi {{ patientName }}
+
+  <br>
+
+  How can I help you today?
+
+</div>
+    <button type="button" class="floating-ai-button" aria-label="Open AI care navigator" (click)="toggleAiAssistant()">
+      <span class="ai-bot-mark">🤖</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <aside class="brand-panel">
+      <div class="brand-badge">
+        <span class="brand-icon"><i class="bi bi-heart-pulse"></i></span>
+        AI Care Navigator
+      </div>
+
+      <div class="brand-content">
+        <p class="eyebrow">Smarter care coordination</p>
+        <h1>Healthcare that feels personal, proactive, and secure.</h1>
+        <p class="tagline">
+          Track patient journeys, surface risk insights, and connect care teams with AI-powered guidance in one place.
+        </p>
+      </div>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="feature-icon"><i class="bi bi-shield-check"></i></span>
+          <div>
+            <strong>Secure access</strong>
+            <small>Protected patient workflows</small>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <span class="feature-icon"><i class="bi bi-clipboard2-pulse"></i></span>
+          <div>
+            <strong>AI risk insights</strong>
+            <small>Predictive care recommendations</small>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <span class="feature-icon"><i class="bi bi-people"></i></span>
+          <div>
+            <strong>Connected teams</strong>
+            <small>Shared care visibility</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="login-panel">
+      <div class="login-panel-inner">
+        <div class="panel-header">
+          <p class="mini-label">Welcome back</p>
+          <h2>Sign in</h2>
+        </div>
+
+        <div class="input-group">
+
+  <div class="label-row">
+    <label for="email">Email address</label>
+  </div>
+
+  <div class="input-wrap">
+    <i class="bi bi-envelope"></i>
+
+    <input
+      id="email"
+      type="email"
+      class="form-control"
+      [(ngModel)]="email"
+      placeholder="name@carenavigator.com">
+  </div>
+
+</div>
+
+        <div class="input-group">
+          <div class="label-row">
+            <label for="password">Password</label>
+            <a href="#">Forgot password?</a>
+          </div>
+          <div class="input-wrap">
+            <i class="bi bi-lock"></i>
+            <input
+              id="password"
+              type="password"
+              class="form-control"
+              [(ngModel)]="password"
+              placeholder="Enter your password"
+            >
+          </div>
+        </div>
+
+        <div class="options-row">
+          <label class="remember-me">
+            <input
+              type="checkbox"
+              [(ngModel)]="rememberMe">
+            <span>Remember me</span>
+          </label>
+        </div>
+
+        <button class="login-btn" (click)="login()">
+          <span>Login</span>
+          <i class="bi bi-arrow-right"></i>
+        </button>
+
+        <p class="signup-text">
+          Don’t have an account?
+          <a href="#">Create account</a>
+        </p>
+      </div>
+    </section>
+  </div>
+</div>

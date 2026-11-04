@@ -1,0 +1,6 @@
+@CareNavigator.API_HostAddress = http://localhost:5017
+
+GET {{CareNavigator.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
